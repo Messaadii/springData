@@ -10,9 +10,11 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Provider {
+
     @Id // primary key
     @GeneratedValue(strategy = GenerationType.AUTO) // table hibernate_sequence AUTO -> Global != IDENTITY
     private long id;
+
     @NotBlank(message = "Name is mandatory")
     @Column(name = "name")
     private String name;
@@ -64,4 +66,13 @@ public class Provider {
         return address;
     }
 
+    @Override
+    public String toString() {
+        return "Provider{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
